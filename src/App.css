@@ -1,0 +1,111 @@
+/* Base Tailwind imports */
+@import "tailwindcss";
+
+/* Custom button styles */
+.btn-primary {
+  background-color: #0072CE; /* Blue */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition-property: background-color;
+  transition-duration: 200ms;
+}
+
+.btn-primary:hover {
+  background-color: #005BAC; /* Darker blue */
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #0072CE; /* Blue */
+  border: 1px solid #0072CE;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  transition-property: background-color;
+  transition-duration: 200ms;
+}
+
+.btn-secondary:hover {
+  background-color: #E6F2FF; /* Very light blue */
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 114, 206, 0.1), 0 2px 4px -1px rgba(0, 114, 206, 0.06);
+  overflow: hidden;
+  transition-property: box-shadow;
+  transition-duration: 200ms;
+}
+
+.card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 114, 206, 0.15), 0 4px 6px -2px rgba(0, 114, 206, 0.1);
+}
+
+/* Form input styles */
+.form-input {
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: 1px solid #B3D7FF; /* Light blue */
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 114, 206, 0.2);
+  border-color: transparent;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E6F2FF; /* Very light blue */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0072CE; /* Blue */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #005BAC; /* Darker blue */
+}
+
+/* Global styles */
+body {
+  background-color: #F5FAFF; /* Extremely light blue */
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: #033466; /* Dark blue for text */
+}
+
+/* Container styles */
+.main-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Additional transitions */
+.transition-all {
+  transition-property: all;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
