@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import Header from './Components/Header';
 import Login from './Components/login';
 import PromtList from './Components/List';
+import ChatPage from './Components/chat';
 import './App.css';
 
 function ScrollToTop() {
@@ -28,6 +29,7 @@ function App() {
             </>
           } />
           <Route path='/login' element={<Login />} />
+          <Route path='/ChatPage' element={<ChatPage />} />
         </Routes>
       </div>
     </BrowserRouter>

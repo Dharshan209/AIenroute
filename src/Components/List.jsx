@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
 import { supabase } from './supabase';
-import { X, BookOpen, Copy, Bookmark, Tag, Search, ChevronRight, ChevronDown ,ChevronLeft} from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { X, BookOpen, Copy, Bookmark, Tag, Search, ChevronRight, ChevronDown, ChevronLeft,MessageCircleCode } from 'lucide-react';
+import ChatPage from './chat';
 
 function PromptList() {
   const [prompts, setPrompts] = useState([]);
@@ -28,6 +30,8 @@ function PromptList() {
         // Extract unique categories
         const uniqueCategories = [...new Set(Prompt.map(item => item.Category))];
         setCategories(uniqueCategories);
+
+
       } catch (err) {
         console.error('Error fetching Prompts:', err);
         setError('Failed to load prompts');
@@ -48,6 +52,15 @@ function PromptList() {
   const handleCategorySelect = (category) => {
     setSelectedCategory(category === selectedCategory ? null : category);
     setSearchTerm('');
+  };
+
+  const navigate = useNavigate();
+  
+  // Updated handleChat function to pass the prompt text using navigate
+  const handleChat = (promptText) => {
+    navigate('/ChatPage', { 
+      state: { firstMessage: promptText }
+    });
   };
 
   const toggleSidebar = () => {
@@ -273,11 +286,11 @@ function PromptList() {
                     Close
                   </button>
                   <button 
-                    onClick={() => handleCopy(selectedPrompt['Actual Prompt'])}
+                    onClick={() => handleChat(selectedPrompt['Actual Prompt'])}
                     className="px-5 py-2.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 shadow-sm hover:shadow transition-all flex items-center gap-2"
                   >
-                    <Copy size={16} />
-                    Copy Prompt
+                    <MessageCircleCode size={16} />
+                    Chat
                   </button>
                 </div>
               </div>
