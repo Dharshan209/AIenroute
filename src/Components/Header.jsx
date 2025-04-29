@@ -1,10 +1,14 @@
 import { User, Sparkles } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const navigate = useNavigate();
     const handleLoginClick = () => {
         navigate('/login');
+    };
+
+    const handleHome = () =>{
+      navigate("/home");
     };
     
   return (
@@ -23,6 +27,14 @@ const Header = () => {
             <a href="#" className="text-white/90 hover:text-white text-sm font-medium transition">Discover</a>
             <a href="#" className="text-white/90 hover:text-white text-sm font-medium transition">About</a>
           </nav>
+
+          <button 
+            onClick={handleHome} 
+            className="flex items-center gap-2 bg-white hover:bg-amber-50 text-indigo-600 px-4 py-2 rounded-lg font-medium shadow-sm transition-all duration-200 hover:shadow border border-transparent"
+          >
+            <span>Home</span>
+          </button>
+
 
           {/* Login Button */}
           <button 
